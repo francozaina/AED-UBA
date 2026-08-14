@@ -1,0 +1,180 @@
+class Funciones {
+
+/***  Primera parte: Funciones en java ***/
+
+    int cuadrado(int x) {
+            int res;
+            res = x*x;
+            return res;
+    }
+
+    double distancia(double x, double y) {
+        double res;
+        res = Math.sqrt(x*x + y*y);        
+        return res;
+    }
+
+    boolean esPar(int n) {
+        boolean res;
+        if (n%2 == 0){
+            res = true;
+        } else{
+            res = false;
+        }    
+        return res;
+    }
+
+    boolean esBisiesto(int n) {
+        boolean res = true;
+        if ((n%4 == 0 && n%100 != 0)|| n%400 == 0){
+            res = true;
+        }
+        else {
+            res = false;
+        }
+        return res;
+    }
+
+    int factorialIterativo(int n) {
+        int res = n;
+        int aux = n-1; 
+        int contador = 1;
+        if (n==0 || n == 1){
+            res = 1;
+            return res;
+        }
+        else {
+            while (contador != n){
+                res = res * aux;
+                aux = aux-1;
+                contador += 1;
+            }    
+        }
+        return res;
+    }
+
+    int factorialRecursivo(int n) {
+        if (n==0 || n == 1){
+            return 1;
+        }
+        else {
+            return n * factorialRecursivo (n-1);
+        } 
+    }
+
+    boolean esPrimo(int n) {
+        int aux = 2;
+        boolean res = true;
+        if (n== 1){
+            res = false;
+            return res;
+        }
+        while (aux != n){
+            if (n%aux == 0) {
+                res = false;
+            }
+            aux+=1;
+        }
+        return res;
+    }
+
+    int sumatoria(int[] numeros) {
+        int res = 0;
+        int contador = 0;
+        while (contador != numeros.length){
+            res = res + numeros[contador];
+            contador +=1;
+        }
+        return res;
+    }
+
+    int busqueda(int[] numeros, int buscado) {
+        int posicion = 0;
+        while (numeros[posicion]!= buscado && posicion != numeros.length)
+        {
+            posicion +=1;
+        }
+        return posicion;
+    }
+
+    boolean tienePrimo(int[] numeros) {
+        int posicion = 0;
+        while (posicion != numeros.length){           
+            if (esPrimo (numeros[posicion])== true){
+                return true;
+            }         
+            posicion +=1;
+
+        }
+        return false;
+    }
+
+    boolean todosPares(int[] numeros) {
+        int posicion = 0;
+        while (posicion != numeros.length){
+            if (esPar(numeros[posicion])== false){
+                return false;
+            }
+            posicion +=1; 
+        }       
+        return true;
+    }
+
+    boolean esPrefijo(String s1, String s2) {
+        // COMPLETAR
+        return false;
+    }
+
+    boolean esSufijo(String s1, String s2) {
+        // COMPLETAR
+        return false;
+    }
+
+/***  Segunda parte: Debugging ***/
+
+    boolean xor(boolean a, boolean b) {
+        return a || b && !(a && b);
+    }
+
+    boolean iguales(int[] xs, int[] ys) {
+        boolean res = true;
+
+        for (int i = 0; i < xs.length; i++) {
+            if (xs[i] != ys[i]) {
+                res = false;
+            }
+        }
+        return res;
+    }
+
+    boolean ordenado(int[] xs) {
+        boolean res = true;
+        for (int i = 0; i < xs.length; i++) {
+            if (xs[i] > xs [i+1]) {
+                res = false;
+            }
+        }
+        return res;
+    }
+
+    int maximo(int[] xs) {
+        int res = 0;
+        for (int i = 0; i <= xs.length; i++) {
+            if (xs[i] > res) res = i;
+        }
+        return res;
+    }
+
+    boolean todosPositivos(int[] xs) {
+        boolean res = false;
+        for (int x : xs) {
+            if (x > 0) {
+                res = true;
+            } else {
+                res = false;
+            }
+        }
+        return res;
+    }
+
+}
