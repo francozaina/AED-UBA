@@ -67,13 +67,12 @@ class Funciones {
     boolean esPrimo(int n) {
         int aux = 2;
         boolean res = true;
-        if (n== 1){
-            res = false;
-            return res;
+        if (n<=1){
+            return false;
         }
         while (aux != n){
             if (n%aux == 0) {
-                res = false;
+                return false;
             }
             aux+=1;
         }
@@ -92,7 +91,7 @@ class Funciones {
 
     int busqueda(int[] numeros, int buscado) {
         int posicion = 0;
-        while (numeros[posicion]!= buscado && posicion != numeros.length)
+        while (posicion < numeros.length && numeros[posicion] != buscado)
         {
             posicion +=1;
         }
